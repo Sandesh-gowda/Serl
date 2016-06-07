@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SERL</string>
+    <string name="no_internet_connection">You don\'t have internet connection. Please check your internet and try again.</string>
+
+</resources>
