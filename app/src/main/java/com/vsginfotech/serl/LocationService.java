@@ -148,6 +148,7 @@ public class LocationService extends Service implements ConnectionCallbacks, OnC
             double latitude = currentLocation.getLatitude();
             double longitude = currentLocation.getLongitude();
             Log.d("LocationService", "battery:" + batteryPercent + " lat: " + latitude + " lang: " + longitude);
+            Toast.makeText(getApplicationContext(),"battery:" + batteryPercent + " lat: " + latitude + " lang: " + longitude,Toast.LENGTH_LONG).show();
             new ContactUsTask(tripid, String.valueOf(latitude), String.valueOf(longitude), String.valueOf(batteryPercent)).execute();
         }
     }
