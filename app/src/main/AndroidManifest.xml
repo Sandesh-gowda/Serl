@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".MyApplication"
@@ -33,7 +34,44 @@
 
         <service
             android:name="com.vsginfotech.serl.LocationService"
-            android:enabled="true"></service>
+            android:enabled="true">
+
+
+//code modified from starting on boot up
+
+            <intent-filter>
+                <action android:name="com.vsginfotech.serl.LocationService" />
+            </intent-filter>
+
+
+        </service>
+
+<!--
+        <service android:name=".MyService" android:label="My Service">
+            <intent-filter>
+                <action android:name="com.myapp.MyService" />
+            </intent-filter>
+        </service>-->
+
+
+
+
+
+
+        <receiver
+            android:enabled="true"
+            android:exported="true"
+            android:name="ServiceStarterBoot"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </receiver>
+
 
         <!--<service android:name=".LocationTrace">-->
         <!--<intent-filter android:priority="1000">-->
