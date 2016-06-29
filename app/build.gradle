@@ -9,8 +9,8 @@ android {
         applicationId "com.vsginfotech.serl"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 5
-        versionName "1.5"
+        versionCode 8
+        versionName "1.8"
     }
     buildTypes {
         release {

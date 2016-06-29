@@ -30,7 +30,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Gpssetting" />
+
+
+        <activity android:name=".Gpssetting"   android:theme="@android:style/Theme.NoDisplay"/>
+
+
+
+
 
         <service
             android:name="com.vsginfotech.serl.LocationService"
@@ -55,7 +61,7 @@
 
 
 
-
+<!--THis is The code to startup at boot time-->
 
 
         <receiver

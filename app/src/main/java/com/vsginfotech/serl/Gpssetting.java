@@ -1,6 +1,7 @@
 package com.vsginfotech.serl;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -14,14 +15,16 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-public class Gpssetting extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+public class Gpssetting extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
     private int REQUEST_LOCATIONS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gpssetting);
+       // setContentView(R.layout.activity_gpssetting);
         checkForLocation();
+
+        this.finish();
     }
 
 
@@ -34,7 +37,12 @@ public class Gpssetting extends AppCompatActivity implements ActivityCompat.OnRe
                     if (MyLocation.isLocationServiceAvailable(this)) {
                         Intent intent = new Intent(getApplicationContext(), LocationService.class);
                         startService(intent);
-                        Toast.makeText(getApplicationContext(), "Service started", Toast.LENGTH_SHORT).show();
+
+                        //This has been disable due to the customer dont want this message to see .
+
+                      //  Toast.makeText(getApplicationContext(), "Service started", Toast.LENGTH_SHORT).show();
+
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Location service unavalable", Toast.LENGTH_SHORT).show();
                     }
@@ -75,12 +83,12 @@ public class Gpssetting extends AppCompatActivity implements ActivityCompat.OnRe
                     }).setCancelable(true);
 
             Dialog dialog = builder.create();
+
             dialog.show();
         } else {
             ActivityCompat.requestPermissions(this, permissions, requestCode);
         }
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
