@@ -39,7 +39,7 @@ public class Gpssetting extends Activity implements ActivityCompat.OnRequestPerm
                         startService(intent);
 
                         //This has been disable due to the customer dont want this message to see .
-
+//TODO:service will start here so the main catch is here.
                       //  Toast.makeText(getApplicationContext(), "Service started", Toast.LENGTH_SHORT).show();
 
 
