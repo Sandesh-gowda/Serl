@@ -14,7 +14,7 @@ public class SplashScreen extends AppCompatActivity {
         getSupportActionBar().hide();
       //  scheduleNotify();
 
-
+/*TODO:the splash screen will take 45sec to launch it so that all the network call will happen */
 
         if (MyApplication.getInstance().getPrefManager(Constants.Login_Preferences).getUser() != null) {
 //            startService(new Intent(getBaseContext(), ScheduledService.class));
@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
                     SplashScreen.this.startActivity(mainIntent);
                     SplashScreen.this.finish();
                 }
-            }, 5000);
+            }, 50000);
 
 
         }else{
@@ -36,7 +36,7 @@ public class SplashScreen extends AppCompatActivity {
                     SplashScreen.this.startActivity(mainIntent);
                     SplashScreen.this.finish();
                 }
-            }, 5000);
+            }, 50000);
         }
 
 

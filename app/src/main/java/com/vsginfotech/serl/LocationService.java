@@ -140,6 +140,8 @@ public class LocationService extends Service implements ConnectionCallbacks, OnC
     public void run() {
         handler.removeCallbacks(this);
         //code changed for 5 mim
+
+        /*TODO:code will work for time lag of 5 min */
        handler.postDelayed(this, 1 * 60 * 1000);
        // handler.postDelayed(this, 5 * 60 * 1000);
         Log.d("LocationService", "run : 141");
